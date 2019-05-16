@@ -26,7 +26,8 @@ SPECIES = "human"
   def cats
     @@all.select do |pet|
     end
-    
+  end
+
 
   def self.count
     @@all.length
