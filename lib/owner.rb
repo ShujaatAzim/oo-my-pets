@@ -5,11 +5,10 @@ class Owner
 SPECIES = "human"
 @@all = []
 
-  attr_reader :name, :species, :pets
+  attr_reader :name, :species
 
   def initialize(name)
     @name = name
-    @pets = []
     @@all << self
     @species = SPECIES
   end
@@ -27,13 +26,13 @@ SPECIES = "human"
   end
 
   def cats
-    self.pets.select do |pet|
+    Cat.all.select do |pet|
       pet.class == Cat
     end
   end
 
   def dogs
-    self.pets.select do |pet|
+    Dog.all.select do |pet|
       pet.class == Dog
     end
   end
@@ -59,11 +58,16 @@ SPECIES = "human"
   end
 
   def sell_pets
-    self.pets.each do |pet| 
+    self.cats.each do |pet| 
       pet.mood = "nervous" 
       pet.owner = nil
     end
-    self.pets.clear
+    self.dogs.each do |pet|
+      pet.mood = "nervous" 
+      pet.owner = nil
+    end 
+    self.cats.clear
+    self.dogs.clear
   end
 
   def list_pets
