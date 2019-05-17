@@ -2,7 +2,6 @@ require 'pry'
 
 class Owner
 
-SPECIES = "human"
 @@all = []
 
   attr_reader :name, :species
@@ -10,7 +9,7 @@ SPECIES = "human"
   def initialize(name)
     @name = name
     @@all << self
-    @species = SPECIES
+    @species = "human"
   end
 
   def buy_cat(name)
