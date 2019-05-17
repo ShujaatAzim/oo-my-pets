@@ -32,9 +32,7 @@ SPECIES = "human"
   end
 
   def dogs
-    Dog.all.select do |pet|
-      pet.class == Dog
-    end
+    Dog.all
   end
 
   def self.count
